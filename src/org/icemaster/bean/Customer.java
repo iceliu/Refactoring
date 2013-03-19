@@ -45,26 +45,11 @@ public class Customer {
         return result;
     }
 
+    /**
+     * @deprecated Use {@link org.icemaster.business.Rental#getCharge()} instead
+     */
     private double amountFor(Rental aRental) {
-        double result = 0;
-        switch (aRental.getMovie().getPriceCode()) {
-        case Movie.REGULAR:
-            result += 2;
-            if (aRental.getDeysRented() > 2) {
-                result += (aRental.getDeysRented() - 2) * 1.5;
-            }
-            break;
-        case Movie.NEW_RELEASE:
-            result += aRental.getDeysRented() * 3;
-            break;
-        case Movie.CHILDRENS:
-            result += 1.5;
-            if (aRental.getDeysRented() > 3) {
-                result += (aRental.getDeysRented() - 3) * 1.5;
-            }
-            break;
-        }
-        return result;
+        return aRental.getCharge();
     }
 
     public String getName() {
