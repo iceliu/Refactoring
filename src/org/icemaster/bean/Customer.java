@@ -27,7 +27,7 @@ public class Customer {
             double thisAmount = 0;
             Rental each = enu_rentals.nextElement();
 
-            thisAmount = amountFor(each);
+            thisAmount = each.getCharge();
 
             frequentRentePoints++;
 
@@ -43,13 +43,6 @@ public class Customer {
         result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
         result += "You earned " + String.valueOf(frequentRentePoints) + " frequent renter points";
         return result;
-    }
-
-    /**
-     * @deprecated Use {@link org.icemaster.business.Rental#getCharge()} instead
-     */
-    private double amountFor(Rental aRental) {
-        return aRental.getCharge();
     }
 
     public String getName() {
